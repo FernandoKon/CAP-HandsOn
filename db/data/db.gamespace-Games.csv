@@ -1,0 +1,7 @@
+ID,title,company_ID,genre,typeOf,price_amount,price_currency_code,review
+ffdd2d3e-6604-427d-aca8-c08edafb0c71, Hogwarts Legacy, ea866e8a-f8b7-402c-9500-abd215738ba9, 3, 1, 20.50, USD, 4
+11223344-5566-7788-99aa-bbccddeeff00, FIFA 23, 23b5c00f-d2b7-4896-9a4e-451f730a3c13, 2, 1, 59.99, USD, 5
+22334455-6677-8899-aabb-ccddeeff0011, Assassin's Creed Valhalla, 5d784b8a-6f57-4e3d-9172-1bbba3a8d5e7, 3, 1, 49.99, EUR, 4
+33445566-7788-99aa-bbcc-ddeeff002233, The Last of Us Part II, 72f1c2ad-765c-4f4d-85bb-d0a8a5b78f77, 3, 1, 39.99, USD, 5
+44556677-8899-aabb-ccdd-eeff00334455, Cyberpunk 2077, b97c83b2-50a8-4d16-ae14-2b3f4e1d5ed3, 3, 1, 29.99, USD, 3
+55667788-99aa-bbcc-ddee-ff0044556677, The Elder Scrolls V: Skyrim, 9f3d0f7b-7c2c-471e-a2a8-b4e8d89063d3, 3, 1, 19.99, USD, 5
