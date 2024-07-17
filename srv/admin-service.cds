@@ -8,9 +8,16 @@ service AdminService {
         modifiedBy,
         createdAt,
         createdBy,
-    };
+    }; @cds.redirection.target
 
-    // entity GamesAgreggate as projection on db.GamesAgreggate;
+    entity GamesAggregate as projection on db.GamesAggregate {
+        *
+    } excluding {
+        modifiedAt,
+        modifiedBy,
+        createdAt,
+        createdBy,
+    };
 
     entity Companies as projection on db.Companies{
         *

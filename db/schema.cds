@@ -17,17 +17,43 @@ entity Games : cuid, managed {
     review  : Review         @title: 'Nota';
 }
 
-entity GamesAgreggate as
+entity GamesAggregate as
     projection on Games {
+        title,
+        company,
+        genre,
+        typeOf,
+        price,
+        review
+}
+
+annotate GamesAggregate with @(
+  Aggregation.ApplySupported: {
+    GroupableProperties: [
         title,
         genre,
         typeOf,
         price,
         review
-    }
+    ]
+  },
+  UI: {
+        PresentationVariant: {
+          Total: [
+            price_amount
+          ],
+          Visualizations: [
+            // '@UI.LineItem'
+          ]
+        }
+      },
+  Aggregation.CustomAggregate #price_amount: 'Edm.Decimal'
+){
+  price @Analytics.Measure @Aggregation.default: #SUM
+}
 
 entity Companies : cuid, managed {
-    companyName        : String(255)  @title: 'Empresa'  @mandatory;
+    companyName : String(255)  @title: 'Empresa'  @mandatory;
     publCountry : Country             @title: 'Código do País';
     cnpj        : String(255)         @title: 'CNPJ';
     city        : String(255)         @title: 'Cidade';
@@ -61,3 +87,14 @@ type Review         : Integer enum {
     Bom          = 4;
     Excelente    = 5;
 }
+
+// v2
+// annotate GamesAgreggate with @(
+//   sap.semantics: 'aggregate'
+// ){
+//   title @sap.aggregation.role: 'dimension';
+//   genre @sap.aggregation.role: 'dimension';
+//   typeOf @sap.aggregation.role: 'dimension';
+//   price @sap.aggregation.role: 'dimension';
+//   review @sap.aggregation.role: 'measure'
+// };
