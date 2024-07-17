@@ -11,8 +11,8 @@ class AdminService extends cds.ApplicationService {
         const { Companies } = this.entities;
 
         this.after('READ', Companies, (each) => {
-            if (each.CNPJ) {
-                each.CNPJ = this.formatCNPJ(each.CNPJ);
+            if (each.cnpj) {
+                each.cnpj = this.formatCNPJ(each.cnpj);
             }
         });
     }

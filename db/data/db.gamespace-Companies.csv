@@ -1,4 +1,4 @@
-ID,name,publCountry_code,cnpj,city
+ID,companyName,publCountry_code,cnpj,city
 ea866e8a-f8b7-402c-9500-abd215738ba9, Avalanche Software, US, 12345678900122, São Francisco
 23b5c00f-d2b7-4896-9a4e-451f730a3c13, Electronic Arts, US, 98765432100198, Redwood City
 5d784b8a-6f57-4e3d-9172-1bbba3a8d5e7, Ubisoft, US, 12345987600156, Paris

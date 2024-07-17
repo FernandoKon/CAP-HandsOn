@@ -9,34 +9,35 @@ using {
 namespace db.gamespace;
 
 entity Games : cuid, managed {
-    title   : String(255)               @mandatory;
-    company : Association to Companies  @mandatory  @assert.target;
-    genre   : Genre                     @assert.range: true;
-    typeOf  : typeOfGameplay;
+    title   : String(255)    @title: 'Titulo'  @mandatory;
+    company : Association to Companies         @mandatory  @assert.target;
+    genre   : Genre          @title: 'Genero'  @assert.range: true;
+    typeOf  : typeOfGameplay @title: 'Modo de Jogo';
     price   : Price;
-    review  : Review;
+    review  : Review         @title: 'Nota';
 }
 
-entity GamesAgreggate as projection on Games {
-    title,
-    genre,
-    typeOf,
-    price,
-    review
-}
+entity GamesAgreggate as
+    projection on Games {
+        title,
+        genre,
+        typeOf,
+        price,
+        review
+    }
 
 entity Companies : cuid, managed {
-    name        : String(255)           @mandatory;
-    publCountry : Country;
-    cnpj        : String(255);
-    city        : String(255);
+    companyName        : String(255)  @title: 'Empresa'  @mandatory;
+    publCountry : Country             @title: 'Código do País';
+    cnpj        : String(255)         @title: 'CNPJ';
+    city        : String(255)         @title: 'Cidade';
     games       : Association to many Games
                       on games.company = $self
 }
 
 type Price {
-    amount   : Decimal;
-    currency : Currency
+    amount   : Decimal  @title: 'Valor';
+    currency : Currency @title: 'Moeda'
 }
 
 type typeOfGameplay : Integer enum {
@@ -44,7 +45,7 @@ type typeOfGameplay : Integer enum {
     multiplayer  = 2;
 }
 
-type Genre : Integer enum {
+type Genre          : Integer enum {
     MMO          = 1;
     ESPORT       = 2;
     RPG          = 3;
@@ -53,10 +54,10 @@ type Genre : Integer enum {
     BattleRoayle = 6;
 }
 
-type Review : Integer enum {
-    bad          = 1;
-    poor         = 2;
-    average      = 3;
-    good         = 4;
-    excellent    = 5;
+type Review         : Integer enum {
+    Péssima      = 1;
+    Ruim         = 2;
+    Média        = 3;
+    Bom          = 4;
+    Excelente    = 5;
 }
