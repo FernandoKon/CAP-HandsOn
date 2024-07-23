@@ -3,18 +3,27 @@ const cds = require('@sap/cds')
 class AdminService extends cds.ApplicationService {
     init() {
         this.readCompanies();
-
+        this.readGames();
+        
         return super.init();
     }
 
     readCompanies() {
         const { Companies } = this.entities;
 
-        this.after('READ', Companies, (each) => {
-            if (each.cnpj) {
-                each.cnpj = this.formatCNPJ(each.cnpj);
+        this.after('READ', Companies, (e) => {
+            if (e.cnpj) {
+                e.cnpj = this.formatCNPJ(e.cnpj);
             }
         });
+    }
+
+    readGames() {
+        const { Games } = this.entities;
+
+        this.after('READ', Games, (e) => {
+            console.log(e.title)
+        })
     }
 
     formatCNPJ(cnpj) {

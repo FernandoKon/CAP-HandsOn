@@ -29,6 +29,10 @@ annotate service.Games with @(
                 $Type : 'UI.DataField',
                 Value : review,
             },
+            {
+                $Type : 'UI.DataField',
+                Value : companyName,
+            },
         ],
     },
     UI.Facets : [
@@ -95,3 +99,10 @@ annotate service.Games with {
     }
 };
 
+annotate service.Games with @(
+    UI.HeaderInfo : {
+        $Type : 'UI.HeaderInfoType',
+        TypeName : 'Games',
+        TypeNamePlural : 'Games',
+    }
+);
