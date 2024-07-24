@@ -10,15 +10,15 @@ namespace db.gamespace;
 entity Games : cuid, managed {
   title   : String(255)    @title: 'Titulo'  @mandatory;
   company : Association to one Companies     @mandatory  @assert.target;
-  genre   : Genre          @title: 'Genero'  @assert.range: true;
-  typeOf  : typeOfGameplay @title: 'Modo de Jogo';
+  typeOf  : Association to one TypeOf;
   price   : Price;
+  genre   : Association to one Genre;
   review  : Review         @title: 'Nota';
 }
 
 
 entity Companies : cuid, managed {
-  companyName : String(255)  @title: 'Empresa'  @mandatory;
+  companyName : String(255)  @title: 'Desenvolvedora'  @mandatory;
   publCountry : Country      @title: 'Código do País';
   cnpj        : String(255)  @title: 'CNPJ';
   city        : String(255)  @title: 'Cidade';
@@ -26,26 +26,22 @@ entity Companies : cuid, managed {
                   on games.company = $self
 }
 
+entity Genre : cuid, managed {
+  type  : String(255) @title : 'Gênero'; 
+  value : Integer;
+}
+
+entity TypeOf : cuid, managed {
+  type  : String(255) @title : 'Modo de Jogo'; 
+  value : Integer;
+}
+
 type Price {
-  amount   : Decimal(10,2)  @title: 'Valor';
+  amount   : Decimal(10,2)  @title: 'Preço';
   currency : Currency @title: 'Moeda'
 }
 
-type typeOfGameplay : Integer enum {
-  singleplayer = 1;
-  multiplayer  = 2;
-}
-
-type Genre          : Integer enum {
-  MMO          = 1;
-  ESPORT       = 2;
-  RPG          = 3;
-  RTS          = 4;
-  MOBA         = 5;
-  BattleRoayle = 6;
-}
-
-type Review         : Integer enum {
+type Review  : Integer enum {
   Péssima      = 1;
   Ruim         = 2;
   Média        = 3;

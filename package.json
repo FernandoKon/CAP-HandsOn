@@ -13,13 +13,14 @@
   "devDependencies": {
     "@cap-js/sqlite": "^1",
     "@sap/eslint-plugin-cds": "^3",
-    "@sap/ux-specification": "^1.120.14",
+    "@sap/ux-specification": "^1.120.15",
     "eslint": "^9"
   },
   "scripts": {
     "start": "cds-serve",
     "watch-handson": "cds watch --open handson/webapp/index.html?sap-ui-xx-viewCache=false",
-    "watch-companies": "cds watch --open companies/webapp/index.html?sap-ui-xx-viewCache=false"
+    "watch-companies": "cds watch --open companies/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-gamesreview": "cds watch --open gamesreview/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "sapux": [
     "app/handson",
@@ -27,6 +28,8 @@
     "app/handson",
     "app/handson",
     "app/handson",
-    "app/companies"
+    "app/companies",
+    "app/gamesreview",
+    "app/gamesreview"
   ]
 }

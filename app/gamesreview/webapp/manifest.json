@@ -1,7 +1,7 @@
 {
   "_version": "1.59.0",
   "sap.app": {
-    "id": "com..companies",
+    "id": "com.lab2dev.gamesreview",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -12,8 +12,8 @@
     "resources": "resources.json",
     "sourceTemplate": {
       "id": "@sap/generator-fiori:lrop",
-      "version": "1.14.1",
-      "toolsId": "f272d4d0-751d-46d5-963c-c7c8600cc4f3"
+      "version": "1.14.2",
+      "toolsId": "724892b6-c27e-4030-b88c-60bb3dcb6b03"
     },
     "dataSources": {
       "mainService": {
@@ -50,7 +50,8 @@
         "sap.m": {},
         "sap.ui.core": {},
         "sap.ushell": {},
-        "sap.fe.templates": {}
+        "sap.fe.templates": {},
+        "sap.f": {}
       }
     },
     "contentDensities": {
@@ -61,7 +62,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "com..companies.i18n.i18n"
+          "bundleName": "com.lab2dev.gamesreview.i18n.i18n"
         }
       },
       "": {
@@ -82,37 +83,43 @@
       "css": []
     },
     "routing": {
-      "config": {},
+      "config": {
+        "flexibleColumnLayout": {
+          "defaultTwoColumnLayoutType": "TwoColumnsBeginExpanded",
+          "defaultThreeColumnLayoutType": "ThreeColumnsMidExpanded"
+        },
+        "routerClass": "sap.f.routing.Router"
+      },
       "routes": [
         {
           "pattern": ":?query:",
-          "name": "CompaniesList",
-          "target": "CompaniesList"
+          "name": "GamesList",
+          "target": [
+            "GamesList"
+          ]
         },
         {
-          "pattern": "Companies({key}):?query:",
-          "name": "CompaniesObjectPage",
-          "target": "CompaniesObjectPage"
-        },
-        {
-          "pattern": "Companies({key})/games({key2}):?query:",
+          "pattern": "Games({key}):?query:",
           "name": "GamesObjectPage",
-          "target": "GamesObjectPage"
+          "target": [
+            "GamesList",
+            "GamesObjectPage"
+          ]
         }
       ],
       "targets": {
-        "CompaniesList": {
+        "GamesList": {
           "type": "Component",
-          "id": "CompaniesList",
+          "id": "GamesList",
           "name": "sap.fe.templates.ListReport",
           "options": {
             "settings": {
-              "contextPath": "/Companies",
+              "contextPath": "/Games",
               "variantManagement": "Page",
               "navigation": {
-                "Companies": {
+                "Games": {
                   "detail": {
-                    "route": "CompaniesObjectPage"
+                    "route": "GamesObjectPage"
                   }
                 }
               },
@@ -124,25 +131,9 @@
                 }
               }
             }
-          }
-        },
-        "CompaniesObjectPage": {
-          "type": "Component",
-          "id": "CompaniesObjectPage",
-          "name": "sap.fe.templates.ObjectPage",
-          "options": {
-            "settings": {
-              "editableHeaderContent": false,
-              "contextPath": "/Companies",
-              "navigation": {
-                "games": {
-                  "detail": {
-                    "route": "GamesObjectPage"
-                  }
-                }
-              }
-            }
-          }
+          },
+          "controlAggregation": "beginColumnPages",
+          "contextPattern": ""
         },
         "GamesObjectPage": {
           "type": "Component",
@@ -151,11 +142,19 @@
           "options": {
             "settings": {
               "editableHeaderContent": false,
-              "contextPath": "/Companies/games"
+              "contextPath": "/Games"
             }
-          }
+          },
+          "controlAggregation": "midColumnPages",
+          "contextPattern": "/Games({key})"
         }
       }
+    },
+    "rootView": {
+      "viewName": "sap.fe.templates.RootContainer.view.Fcl",
+      "type": "XML",
+      "async": true,
+      "id": "appRootView"
     }
   },
   "sap.fiori": {

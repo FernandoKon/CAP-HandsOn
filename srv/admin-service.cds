@@ -4,10 +4,38 @@ service AdminService {
     @cds.redirection.target
     entity Games as projection on db.Games {
         *,
-        company.companyName
-    }; 
+        title,
+        company,
+        typeOf,
+        price,
+        genre,
+        review
+    } excluding {
+        createdAt,
+        createdBy,
+        modifiedAt,
+        modifiedBy
+    };
 
-    @readonly entity Companies as projection on db.Companies ;
+    @readonly entity Companies as projection on db.Companies;
+
+    entity Genre as projection on db.Genre {
+        *
+    } excluding {
+        createdAt,
+        createdBy,
+        modifiedAt,
+        modifiedBy
+    };
+
+    entity TypeOf as projection on db.TypeOf {
+        *
+    } excluding {
+        createdAt,
+        createdBy,
+        modifiedAt,
+        modifiedBy
+    };
 
     @readonly entity UniqueReviews as select from db.Games {
         review
@@ -34,45 +62,50 @@ annotate AdminService.Games with @(
     UI: {
         SelectionFields  : [
             title,
-            companyName,
-            genre,
+            company_ID,
             review
         ],
         LineItem  : [
             {
                 $Type : 'UI.DataField',
+                Value : title,
+            },
+            {
+                $Type : 'UI.DataField',
+                Value :  company.companyName,
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : price_amount,
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : price_currency_code,
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : genre.type,
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : typeOf.type,
+            },
+            {
+                $Type : 'UI.DataField',
                 Value : review,
             },
-            
         ],
+        HeaderInfo  : {
+            $Type : 'UI.HeaderInfoType',
+            TypeName : 'Jogo',
+            TypeNamePlural : 'Jogos',
+        },
+
     }
 ){
-    companyName @(
-        title : 'Desenvolvedora',
-        Common: {
-            ValueList : {
-                $Type : 'Common.ValueListType',
-                CollectionPath : 'Companies',
-                Label : 'Desenvolvedoras',
-
-                Parameters: [
-                    {
-                        $Type : 'Common.ValueListParameterInOut',
-                        LocalDataProperty : companyName,
-                        ValueListProperty : 'companyName',
-                    },
-                    {
-                        $Type : 'Common.ValueListParameterInOut',
-                        LocalDataProperty : company_ID,
-                        ValueListProperty : 'ID',
-                    },
-                ]
-            },
-        }
-    );
     title @(
         Common: {
-            ValueListWithFixedValues,
+            // ValueListWithFixedValues,
             ValueList : {
                 $Type : 'Common.ValueListType',
                 CollectionPath : 'Games',

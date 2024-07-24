@@ -9,20 +9,12 @@ annotate service.Games with @(
             },
             {
                 $Type : 'UI.DataField',
-                Value : genre,
-            },
-            {
-                $Type : 'UI.DataField',
-                Value : typeOf,
-            },
-            {
-                $Type : 'UI.DataField',
-                Label : 'price_amount',
+                Label : 'Preço',
                 Value : price_amount,
             },
             {
                 $Type : 'UI.DataField',
-                Label : 'price_currency_code',
+                Label : '{i18n>Moeda}',
                 Value : price_currency_code,
             },
             {
@@ -31,7 +23,11 @@ annotate service.Games with @(
             },
             {
                 $Type : 'UI.DataField',
-                Value : companyName,
+                Value : genre.type,
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : typeOf.type,
             },
         ],
     },
@@ -39,34 +35,16 @@ annotate service.Games with @(
         {
             $Type : 'UI.ReferenceFacet',
             ID : 'GeneratedFacet1',
-            Label : 'General Information',
+            Label : 'Jogo',
             Target : '@UI.FieldGroup#GeneratedGroup',
         },
-    ],
-    UI.LineItem : [
         {
-            $Type : 'UI.DataField',
-            Value : title,
+            $Type : 'UI.ReferenceFacet',
+            Label : 'Desenvolvedora',
+            ID : 'Desenvolvedora',
+            Target : '@UI.FieldGroup#Desenvolvedora',
         },
-        {
-            $Type : 'UI.DataField',
-            Value : genre,
-        },
-        {
-            $Type : 'UI.DataField',
-            Value : typeOf,
-        },
-        {
-            $Type : 'UI.DataField',
-            Label : 'price_amount',
-            Value : price_amount,
-        },
-        {
-            $Type : 'UI.DataField',
-            Label : 'price_currency_code',
-            Value : price_currency_code,
-        },
-    ],
+    ]
 );
 
 annotate service.Games with {
@@ -99,10 +77,44 @@ annotate service.Games with {
     }
 };
 
+annotate service.Games with {
+    genre @Common.ValueList : {
+        $Type : 'Common.ValueListType',
+        CollectionPath : 'Genre',
+        Parameters : [
+            {
+                $Type : 'Common.ValueListParameterInOut',
+                LocalDataProperty : genre_ID,
+                ValueListProperty : 'ID',
+            },
+            {
+                $Type : 'Common.ValueListParameterDisplayOnly',
+                ValueListProperty : 'type',
+            },
+            {
+                $Type : 'Common.ValueListParameterDisplayOnly',
+                ValueListProperty : 'value',
+            },
+        ],
+    }
+};
+
 annotate service.Games with @(
-    UI.HeaderInfo : {
-        $Type : 'UI.HeaderInfoType',
-        TypeName : 'Games',
-        TypeNamePlural : 'Games',
+    UI.FieldGroup #Desenvolvedora : {
+        $Type : 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type : 'UI.DataField',
+                Value : company.companyName,
+            },{
+                $Type : 'UI.DataField',
+                Value : company.cnpj,
+            },{
+                $Type : 'UI.DataField',
+                Value : company.city,
+            },{
+                $Type : 'UI.DataField',
+                Value : company.publCountry_code,
+            },],
     }
 );

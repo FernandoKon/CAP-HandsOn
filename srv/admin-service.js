@@ -2,7 +2,7 @@ const cds = require('@sap/cds')
 
 class AdminService extends cds.ApplicationService {
     init() {
-        this.readCompanies();
+        // this.readCompanies();
         this.readGames();
         
         return super.init();
