@@ -26,6 +26,18 @@
             "url": ":memory:"
           }
         }
+      },
+      "auth": {
+        "kind": "mocked",
+        "users": {
+          "adminuser": {
+            "password": "1234",
+            "roles": ["admin"]
+          },
+          "testuser": {
+            "password": "4321"
+          }
+        }
       }
     }
   },
@@ -36,9 +48,6 @@
     "watch-gamesreview": "cds watch --open gamesreview/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "sapux": [
-    "app/handson",
-    "app/companies",
-    "app/gamesreview",
     "app/handson"
   ]
 }

@@ -104,7 +104,7 @@ annotate AdminService.Games with @(
                 $Type : 'UI.ReferenceFacet',
                 Target : '@UI.FieldGroup#GameInfo',
                 ID: 'GameInfo',
-                Label: 'Geral'
+                Label: 'Detalhes'
             },
             {
                 $Type : 'UI.ReferenceFacet',
@@ -194,4 +194,22 @@ annotate AdminService.Games with @(
             },
         }
     );
+    company @(
+        title: 'Desenvolvedora',
+        Common: {
+            ValueList : {
+                $Type : 'Common.ValueListType',
+                CollectionPath : 'Companies',
+                Label: 'Desenvolvedora',
+                Parameters: [
+                    {
+                        $Type : 'Common.ValueListParameterIn',
+                        LocalDataProperty : company_ID,
+                        ValueListProperty : 'cnpj',
+                    }
+                ]
+            }
+        }
+)
+
 };
