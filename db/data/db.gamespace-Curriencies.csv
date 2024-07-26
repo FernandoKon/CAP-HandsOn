@@ -1,5 +1,14 @@
-code,name,descr,symbol,minorUnit
-EUR, Euro, , €,  
-USD, US Dollar, , $,
-GBP, British Pound, , £,
-JPY, Yen, , ¥,
+code;symbol;name;descr
+EUR;€;Euro;European Euro
+USD;$;US Dollar;United States Dollar
+CAD;$;Canadian Dollar;Canadian Dollar
+AUD;$;Australian Dollar;Australian Dollar
+GBP;£;British Pound
+ILS;₪;Shekel
+INR;₹;Rupee;Indian Rupee
+QAR;﷼;Riyal;Katar Riyal
+SAR;﷼;Riyal;Saudi Riyal
+JPY;¥;Yen;Japanese Yen
+CNY;¥;Yuan;Chinese Yuan Renminbi
+SGD;S$;Singapore Dollar;Singapore Dollar
+ZAR;R;Rand;South African Rand

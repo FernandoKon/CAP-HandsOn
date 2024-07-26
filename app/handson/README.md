@@ -1,16 +1,16 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Wed Jul 24 2024 19:21:51 GMT+0000 (Coordinated Universal Time)|
+|**Generation Date and Time**<br>Fri Jul 26 2024 03:46:46 GMT+0000 (Coordinated Universal Time)|
 |**App Generator**<br>@sap/generator-fiori-elements|
 |**App Generator Version**<br>1.14.2|
 |**Generation Platform**<br>SAP Business Application Studio|
 |**Template Used**<br>List Report Page V4|
 |**Service Type**<br>Local Cap|
 |**Service URL**<br>http://localhost:4004/odata/v4/admin/|
-|**Module Name**<br>gamesreview|
+|**Module Name**<br>handson|
 |**Application Title**<br>Game Review|
-|**Namespace**<br>com.lab2dev|
+|**Namespace**<br>com.lab|
 |**UI5 Theme**<br>sap_horizon|
 |**UI5 Version**<br>1.126.1|
 |**Enable Code Assist Libraries**<br>False|
@@ -18,7 +18,7 @@
 |**Add Eslint configuration**<br>False|
 |**Main Entity**<br>Games|
 
-## gamesreview
+## handson
 
 An SAP Fiori application.
 
@@ -26,7 +26,7 @@ An SAP Fiori application.
 
 -   This app has been generated using the SAP Fiori tools - App Generator, as part of the SAP Fiori tools suite.  In order to launch the generated app, simply start your CAP project and navigate to the following location in your browser:
 
-http://localhost:4004/gamesreview/webapp/index.html
+http://localhost:4004/handson/webapp/index.html
 
 #### Pre-requisites:
 

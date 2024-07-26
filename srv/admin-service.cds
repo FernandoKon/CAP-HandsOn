@@ -2,6 +2,7 @@ using db.gamespace as db from '../db/schema';
 
 service AdminService {
     @cds.redirection.target
+    @odata.draft.enabled
     entity Games as projection on db.Games {
         *,
         title,
@@ -9,7 +10,7 @@ service AdminService {
         typeOf,
         price,
         genre,
-        review
+        review,
     } excluding {
         createdAt,
         createdBy,
@@ -17,7 +18,7 @@ service AdminService {
         modifiedBy
     };
 
-    @readonly entity Companies as projection on db.Companies;
+    entity Companies as projection on db.Companies;
 
     entity Genre as projection on db.Genre {
         *
@@ -41,8 +42,6 @@ service AdminService {
         review
     } group by review order by review desc;
 }
-
-annotate AdminService.Games with @odata.draft.enabled;
 
 annotate AdminService.Games with @(
     Capabilities : {
@@ -91,8 +90,8 @@ annotate AdminService.Games with @(
                 Value : typeOf.type,
             },
             {
-                $Type : 'UI.DataField',
-                Value : review,
+                $Type : 'UI.DataFieldForAnnotation',
+                Target : '@UI.DataPoint#Aggregated',
             },
         ],
         HeaderInfo  : {
@@ -100,7 +99,65 @@ annotate AdminService.Games with @(
             TypeName : 'Jogo',
             TypeNamePlural : 'Jogos',
         },
-
+        Facets  : [
+            {
+                $Type : 'UI.ReferenceFacet',
+                Target : '@UI.FieldGroup#GameInfo',
+                ID: 'GameInfo',
+                Label: 'Geral'
+            },
+            {
+                $Type : 'UI.ReferenceFacet',
+                Target : '@UI.FieldGroup#CompanyInfo',
+                ID: 'CompanyInfo',
+                Label: 'Desenvolvedora'
+            },
+        ],
+        FieldGroup #GameInfo : {
+            $Type : 'UI.FieldGroupType',
+            Data : [
+                {
+                    Value : title,
+                },
+                {
+                    Value : typeOf.type,
+                },
+                {
+                    Value : price_amount,
+                },
+                {
+                    Value : genre.type,
+                },
+                {
+                    $Type : 'UI.DataFieldForAnnotation',
+                    Target : '@UI.DataPoint#Aggregated',
+                }
+            ]
+        },
+        FieldGroup #CompanyInfo : {
+            $Type : 'UI.FieldGroupType',
+            Data : [
+                {
+                    Value : company.companyName,
+                },
+                {
+                    Value : company.cnpj,
+                },
+                {
+                    Value : company.city,
+                },
+                {
+                    Value : company.publCountry_code,
+                }
+            ]
+        },
+        DataPoint#Aggregated: {
+            Title : 'Avaliação',
+            Value : review,
+            TargetValue : 5,
+            Visualization : #Rating,
+            SampleSize : review
+        },
     }
 ){
     title @(
@@ -126,7 +183,7 @@ annotate AdminService.Games with @(
             ValueList : {
                 $Type : 'Common.ValueListType',
                 CollectionPath : 'UniqueReviews',
-                Label : 'Notas',
+                Label : 'Avaliações',
                 Parameters: [
                     {
                         $Type : 'Common.ValueListParameterInOut',

@@ -1,12 +1,15 @@
 ID,title,company_ID,typeOf_ID,price_amount,price_currency_code,genre_ID,review
 ffdd2d3e-6604-427d-aca8-c08edafb0c71,Hogwarts Legacy,ea866e8a-f8b7-402c-9500-abd215738ba9,1,20.50,USD,3,4
-11223344-5566-7788-99aa-bbccddeeff00,FIFA 23,23b5c00f-d2b7-4896-9a4e-451f730a3c13,1,59.99,USD,2,5
+11223344-5566-7788-99aa-bbccddeeff00,FIFA 23,23b5c00f-d2b7-4896-9a4e-451f730a3c13,2,59.99,USD,2,5
 22334455-6677-8899-aabb-ccddeeff0011,Assassin's Creed Valhalla,5d784b8a-6f57-4e3d-9172-1bbba3a8d5e7,1,49.99,EUR,3,4
 33445566-7788-99aa-bbcc-ddeeff002233,The Last of Us Part II,72f1c2ad-765c-4f4d-85bb-d0a8a5b78f77,1,39.99,USD,3,5
 44556677-8899-aabb-ccdd-eeff00334455,Cyberpunk 2077,b97c83b2-50a8-4d16-ae14-2b3f4e1d5ed3,1,29.99,USD,3,3
-55667788-99aa-bbcc-ddee-ff0044556677,The Elder Scrolls V: Skyrim,9f3d0f7b-7c2c-471e-a2a8-b4e8d89063d3,1,19.99,USD,3,5
+55667788-99aa-bbcc-ddee-ff0044556677,The Elder Scrolls V: Skyrim,9f3d0f7b-7c2c-471e-a2a8-b4e8d89063d3,2,19.99,USD,3,5
 66778899-aabb-ccdd-eeff-112233445566,League of Legends,45f6d7e8-90ab-cdef-1234-567890abcdef,2,0.00,USD,5,4
 77889900-bbcc-ddee-ff11-223344556677,Dota 2,89abcdef-1234-5678-90ab-cdef12345678,2,0.00,USD,5,5
-88990011-ccdd-eeff-1122-334455667788,Counter-Strike: Global Offensive,89abcdef-1234-5678-90ab-cdef12345678,2,14.99,USD,2,5
+88990011-ccdd-eeff-1122-334455667788,Counter-Strike: Global Offensive,89abcdef-1234-5678-90ab-cdef12345678,2,14.99,USD,7,5
 99001122-ddee-ff11-2233-445566778899,Overwatch,abcdef12-3456-7890-abcd-ef1234567890,2,39.99,USD,2,4
-
+0540b78b-ecac-4a96-bfa3-1a4968e082e3,Call of Duty: Modern Warfare,ea866e8a-f8b7-402c-9500-abd215738ba9,2,59.99,USD,7,2
+430ba884-77b0-42b7-818a-b835f56f6c00,Apex Legends,23b5c00f-d2b7-4896-9a4e-451f730a3c13,2,0,USD,6,4
+c2588fa1-4705-451c-b1a2-8d7056a57d37,Watch Dogs: Legion,5d784b8a-6f57-4e3d-9172-1bbba3a8d5e7,1,49.99,USD,3,1
+5989989f-fda0-40ea-9de0-22076dca9940,Valorant,45f6d7e8-90ab-cdef-1234-567890abcdef,2,0.00,USD,7,5

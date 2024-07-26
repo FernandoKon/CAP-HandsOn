@@ -8,13 +8,26 @@
   "dependencies": {
     "@cap-js-community/odata-v2-adapter": "^1.13.0",
     "@sap/cds": "^7",
-    "express": "^4"
+    "express": "^4",
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "@cap-js/sqlite": "^1",
     "@sap/eslint-plugin-cds": "^3",
     "@sap/ux-specification": "^1.120.15",
     "eslint": "^9"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "[development]": {
+          "kind": "sqlite",
+          "credentials": {
+            "url": ":memory:"
+          }
+        }
+      }
+    }
   },
   "scripts": {
     "start": "cds-serve",
@@ -24,12 +37,8 @@
   },
   "sapux": [
     "app/handson",
-    "app/handson",
-    "app/handson",
-    "app/handson",
-    "app/handson",
     "app/companies",
     "app/gamesreview",
-    "app/gamesreview"
+    "app/handson"
   ]
 }

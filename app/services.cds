@@ -1,2 +1,2 @@
 
-using from './gamesreview/annotations';
+using from './handson/annotations';

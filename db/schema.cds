@@ -13,12 +13,12 @@ entity Games : cuid, managed {
   typeOf  : Association to one TypeOf;
   price   : Price;
   genre   : Association to one Genre;
-  review  : Review         @title: 'Nota';
+  review  : Review         @title: 'Avaliação';
 }
 
 
 entity Companies : cuid, managed {
-  companyName : String(255)  @title: 'Desenvolvedora'  @mandatory;
+  companyName : String(255)  @title: 'Desenvolvedora' ;
   publCountry : Country      @title: 'Código do País';
   cnpj        : String(255)  @title: 'CNPJ';
   city        : String(255)  @title: 'Cidade';
